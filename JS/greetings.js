@@ -11,8 +11,7 @@ function onLoginSubmit(event){
   const username = loginInput.value;
   console.log(username);
   localStorage.setItem(USERNAME_KEY, username);
-  greeting.innerHTML = `Hello ${username}`; //"Hello " + username 과 같음.
-  greeting.classList.remove(HIDDEN_CLASSNAME);
+  printGreetings(username);
 }
 
 function printGreetings(username){
