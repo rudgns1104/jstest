@@ -5,12 +5,16 @@ const toDOInput = toDoForm.querySelector("input");  //document.querySelector("#t
 function paintToDo(newTodo){
     const li = document.createElement("li");
     const span = document.createElement("span");
-    li.appendChild(span);
     span.innerText = newTodo;
+    const button = document.createElement("button");
+    button.innerText = "❌";
+    button.addEventListener("click", deleteToDo)
+    li.appendChild(span);
+    li.appendChild(button);
     toDoList.appendChild(li);
 }
 
-function handleToDoSubmit(event) {
+function handleToDoSubmit(event) { 
     event.preventDefault();
     const newTodo = toDOInput.value;
     toDOInput.value = "";
@@ -18,3 +22,8 @@ function handleToDoSubmit(event) {
 } 
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
+
+function deleteToDo(event){
+    const li = event.target.parentElement;
+    li.remove();
+}
