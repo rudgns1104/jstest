@@ -38,8 +38,9 @@ function saveToDos(){
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
-const saveToDos = localStorage.getItem(TODOS_KEY);
+const savedToDos = localStorage.getItem(TODOS_KEY);
 
 if(saveToDos !== null){
-    const parsedToDos = JSON.parse(saveToDos);
+    const parsedToDos = JSON.parse(savedToDos);
+    parsedToDos.forEach((item) => console.log("this is the turn of", item));
 }
